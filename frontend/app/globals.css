@@ -1,26 +1,111 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f0f4ff;
+  --card: #ffffff;
+  --foreground: #1e293b;
+  --secondary: #64748b;
+  --accent: #7c3aed;
+  --hover: #5b21b6;
+  --success: #8b5cf6;
+  --error: #ef4444;
+  --border: #e2e8f0;
+  --code: #0f1117;
+  --padding-x: 200px;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-accent: var(--accent);
+  --color-secondary: var(--secondary);
+  --color-success: var(--success);
+  --color-error: var(--error);
+  --color-border: var(--border);
+  --color-code: var(--code);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --padding-main: var(--padding-x);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0f1117;
+    --card: #1f2937;
+    --foreground: #f9fafb;
+    --secondary: #9ca3af;
+    --accent: #a78bfa;
+    --hover: #818cf8;
+    --success: #8dd1fa;
+    --error: #fca5a5;
+    --border: #374151;
+    --code: #111827;
+    --padding-x: 200px;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  min-height: 100vh;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+@layer {
+  h1 {
+    font-size: 70px;
+  }
+  h2 {
+    font-size: 50px;
+  }
+  h3 {
+    font-size: 40px;
+  }
+  h4 {
+    font-size: 30px;
+  }
+  h5 {
+    font-size: 25px;
+  }
+  h6 {
+    font-size: 19px;
+  }
+  button {
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s;
+    &:hover {
+      opacity: 0.8;
+      transform: translateY(2px);
+    }
+    &:active {
+      opacity: 0.5;
+    }
+  }
+  img {
+    user-select: none;
+  }
+}
+
+@media screen and (width < 600px) {
+  :root {
+    --padding-x: 20px;
+  }
+  h1 {
+    font-size: 50px;
+  }
+  h2 {
+    font-size: 40px;
+  }
+  h3 {
+    font-size: 30px;
+  }
+  h4 {
+    font-size: 25px;
+  }
+  h5 {
+    font-size: 19px;
+  }
 }

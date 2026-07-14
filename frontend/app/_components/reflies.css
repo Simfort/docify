@@ -1,0 +1,6 @@
+.reflie {
+  background-color: var(--card);
+  padding: 20px;
+  box-shadow: 0 0 3px 1px var(--border);
+  border-radius: 5px;
+}
