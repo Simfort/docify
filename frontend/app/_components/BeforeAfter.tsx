@@ -20,7 +20,7 @@ paths:
 
 export default function BeforeAfter() {
   return (
-    <section className="px-main flex overflow-hidden flex-col gap-10 py-20 items-center justify-center relative">
+    <section className="px-main flex relative z-2  overflow-hidden flex-col gap-10 py-20 items-center justify-center relative">
       <div
         aria-hidden
         className="absolute w-1 top-0 left-0 -z-1 bg-accent rotate-z-45  h-full"></div>
@@ -31,7 +31,7 @@ export default function BeforeAfter() {
         aria-hidden
         className=" max-w-lg  w-full bg-accent/20 aspect-square rounded-full absolute  -z-1"></div>
       <h2>Example</h2>
-      <div className="flex items-center flex-col ">
+      <div className="flex items-center  flex-col ">
         <h3>Before</h3>
         <ReactCodeMirror
           value={expressLang}

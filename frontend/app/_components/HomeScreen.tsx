@@ -8,15 +8,15 @@ import Image from "next/image";
 
 export default function HomeScreen() {
   return (
-    <section className="sm:h-screen overflow-hidden   relative px-main pb-20 ">
-      <div className="justify-between flex-wrap flex items-center h-full">
-        <div className="max-w-2xl   gap-10 flex flex-col ">
+    <section className="lg:h-screen overflow-hidden relative z-2   pt-10 relative px-main pb-20 ">
+      <div className="justify-between flex-wrap flex items-center h-full max-lg:justify-center ">
+        <div className="max-w-2xl gap-10 flex flex-col max-lg:items-center ">
           {" "}
-          <h1 className="leading-20">
+          <h1 className="leading-20  max-sm:leading-15 max-lg:text-center max-sm:text-start">
             <span className=" text-accent">Docify </span>– OpenAPI Generator &
             Validator for Express
           </h1>
-          <p>
+          <p className="max-lg:text-center max-sm:text-start">
             A personal project where I built the full stack from scratch:
             Next.js UI, Express backend, and Spectral validation. No AI. Just
             your code.

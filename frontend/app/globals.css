@@ -88,13 +88,22 @@ body {
     user-select: none;
   }
 }
-
+@media screen and (width < 1000px) {
+  :root {
+    --padding-x: 30px;
+  }
+}
+@media screen and (width < 800px) {
+  :root {
+    --padding-x: 20px;
+  }
+}
 @media screen and (width < 600px) {
   :root {
     --padding-x: 20px;
   }
   h1 {
-    font-size: 50px;
+    font-size: 40px;
   }
   h2 {
     font-size: 40px;

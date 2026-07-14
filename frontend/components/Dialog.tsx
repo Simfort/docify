@@ -10,7 +10,7 @@ export default function Dialog({ item }: { item: Question }) {
 
   return (
     <button
-      className="max-w-lg cursor-pointer bg-card shadow text-start rounded-lg p-5 w-full"
+      className="max-w-lg cursor-pointer bg-card relative z-2 shadow text-start rounded-lg p-5 w-full"
       onClick={() => setOpenFlag(!openFlag)}
       aria-expanded={openFlag}
       aria-controls={id}>
