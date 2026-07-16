@@ -7,17 +7,27 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc",
     "start": "node dist/server.js",
-    "dev": "node --watch src/server.ts"
+    "dev": "node --watch dist/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "devDependencies": {
+    "@babel/types": "^7.29.7",
+    "@types/babel__core": "^7.20.5",
+    "@types/babel__traverse": "^7.28.0",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/node": "^26.1.1",
     "express": "^5.2.1",
     "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.29.7",
+    "@babel/traverse": "^7.29.7",
+    "@stoplight/spectral": "^6.5.0",
+    "@stoplight/spectral-rulesets": "^1.22.6",
+    "cors": "^2.8.6"
   }
 }
