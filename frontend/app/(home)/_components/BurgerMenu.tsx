@@ -9,9 +9,10 @@ import { AnimatePresence, motion } from "framer-motion";
 export default function BurgerMenu() {
   const [openFlag, setOpenFlag] = useState(false);
   return (
-    <div className="h-full   right-0 fixed w-full justify-end flex z-1 top-0  lg:hidden ">
+    <div className="h-full   right-0 fixed w-full justify-end flex z-10 top-0  lg:hidden ">
       <button
         aria-expanded={openFlag}
+        aria-label="Open Menu"
         aria-controls="burger-aside"
         className="absolute m-5 z-10"
         onClick={() => setOpenFlag(!openFlag)}>
@@ -20,6 +21,7 @@ export default function BurgerMenu() {
       <AnimatePresence mode="wait">
         {openFlag && (
           <motion.aside
+            role="polite"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}

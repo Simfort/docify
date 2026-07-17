@@ -1,3 +1,4 @@
+import { CircleSlashIcon, Files, Star } from "lucide-react";
 import { Question } from "./types";
 
 export const PAINS = [
@@ -51,3 +52,24 @@ export const QUESTIONS: Question[] = [
       "Yes. The validation service is designed to be called from CI/CD pipelines. You can fail the build if the spec isn’t valid.",
   },
 ];
+export const LIST_RESPONSE = ["JSON", "YAML"];
+
+export const MODES = [
+  <p key={0} className="flex gap-2">
+    <CircleSlashIcon />
+    Classic
+  </p>,
+  <p key={1} className="flex gap-2">
+    <Files />
+    Files
+  </p>,
+];
+
+export const checkBackendAPI = () => {
+  const api = process.env.NEXT_PUBLIC_API_URL;
+  if (api) {
+    return api;
+  } else {
+    throw new Error("NEXT PUBLIC API URL - UNDEFINED");
+  }
+};

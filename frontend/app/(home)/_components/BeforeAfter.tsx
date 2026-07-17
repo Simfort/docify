@@ -1,5 +1,6 @@
 "use client";
 import { javascript } from "@codemirror/lang-javascript";
+import { json } from "@codemirror/lang-json";
 import ReactCodeMirror from "@uiw/react-codemirror";
 
 const expressLang = `// You write the route...
@@ -39,16 +40,18 @@ export default function BeforeAfter() {
           height="200px"
           className="max-sm:w-80"
           readOnly
+          theme={"dark"}
         />{" "}
       </div>{" "}
       <div className="flex items-center flex-col">
         <h3>After</h3>{" "}
         <ReactCodeMirror
           value={yamalLang}
-          extensions={[javascript()]}
+          extensions={[json()]}
           height="200px"
           className="max-sm:w-80"
           readOnly
+          theme={"dark"}
         />{" "}
       </div>
       <button className="py-2 px-5 rounded-lg bg-accent text-background">

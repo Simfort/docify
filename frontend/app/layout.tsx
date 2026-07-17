@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Jost } from "next/font/google";
 import "./globals.css";
-import Header from "./_components/Header";
-import Footer from "./_components/Footer";
+import Footer from "./(home)/_components/Footer";
+import Provider from "./Provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,8 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={` ${jost.className} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
-        <Header />
-        {children}
+        <Provider> {children}</Provider>
         <Footer />
       </body>
     </html>

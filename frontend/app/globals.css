@@ -24,8 +24,7 @@
   --color-error: var(--error);
   --color-border: var(--border);
   --color-code: var(--code);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
   --padding-main: var(--padding-x);
 }
 
@@ -53,7 +52,7 @@ body {
   overflow-x: hidden;
   max-width: 100%;
 }
-@layer {
+@layer components {
   h1 {
     font-size: 70px;
   }

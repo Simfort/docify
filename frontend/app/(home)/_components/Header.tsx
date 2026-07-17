@@ -1,4 +1,3 @@
-import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import BurgerMenu from "./BurgerMenu";
@@ -7,7 +6,7 @@ export default function Header() {
   return (
     <header>
       <BurgerMenu />
-      <div className="flex py-5 fixed w-full bg-background z-1 top-0 px-main justify-between  items-center max-lg:hidden">
+      <div className="flex py-5 fixed w-full bg-background z-10 top-0 px-main justify-between  items-center max-lg:hidden">
         <Link href="/" className="text-lg flex items-center gap-2">
           <Image
             src={"/logoKit.png"}

@@ -8,8 +8,8 @@ import Image from "next/image";
 
 export default function HomeScreen() {
   return (
-    <section className="lg:h-screen overflow-hidden relative z-2   pt-10 relative px-main pb-20 ">
-      <div className="justify-between flex-wrap flex items-center h-full max-lg:justify-center ">
+    <section className="overflow-hidden z-2 h-screen  pt-10 max-md:mt-10 relative px-main pb-20 ">
+      <div className="justify-between max-lg:flex-wrap max-lg:justify-center flex items-center h-full  ">
         <div className="max-w-2xl gap-10 flex flex-col max-lg:items-center ">
           {" "}
           <h1 className="leading-20  max-sm:leading-15 max-lg:text-center max-sm:text-start">
@@ -35,6 +35,7 @@ export default function HomeScreen() {
           </div>
         </div>
         <Image
+          loading="eager"
           src={"/logoKit.png"}
           width={500}
           height={500}
@@ -42,7 +43,7 @@ export default function HomeScreen() {
           className="max-w-lg w-full "
         />
       </div>
-      <div className="flex justify-center  gap-10">
+      <div className="flex justify-center   gap-10">
         {" "}
         <NodeIcon width={50} height={50} />
         <ExpressIcon width={50} height={50} className="fill-foreground" />
