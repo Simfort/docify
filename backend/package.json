@@ -26,8 +26,10 @@
   "dependencies": {
     "@babel/parser": "^7.29.7",
     "@babel/traverse": "^7.29.7",
-    "@stoplight/spectral": "^6.5.0",
-    "@stoplight/spectral-rulesets": "^1.22.6",
-    "cors": "^2.8.6"
+    "@fastify/busboy": "^3.2.0",
+    "adm-zip": "^0.6.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "openai": "^6.48.0"
   }
 }

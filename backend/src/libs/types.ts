@@ -8,15 +8,12 @@ import {
 export type GeneratorResult = {
   method: string;
   path: string;
-  parameters: {
+  headers: {
     name: string;
-    in: "header" | "cookie" | "query";
     description?: string;
     schema: {
       type: string;
-      enum?: string[];
-      default: string;
-      minLength?: number;
+      example: string;
     };
   }[];
   contentType: string;
@@ -24,6 +21,7 @@ export type GeneratorResult = {
 
   value: any;
 };
+
 export type PropertyNode =
   | SpreadElement
   | ObjectMethod
@@ -32,9 +30,9 @@ export type PropertyNode =
 export type OpenAPIFormat = {
   [path: string]: {
     [method: string]: {
-      parameters: GeneratorResult["parameters"];
       responses: {
         [statusCode: number]: {
+          headers: GeneratorResult["headers"];
           content: {
             [contentType: string]: {
               schema: {

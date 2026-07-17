@@ -27,14 +27,6 @@ export default function parseHeaders(
     if (node.callee.property.name === "type") {
       if (arg.type === "StringLiteral") {
         route.contentType = arg.value;
-        route.parameters?.push({
-          name: "Content-Type",
-          in: "header",
-          schema: {
-            type: "string",
-            default: arg.value,
-          },
-        });
         return;
       }
     } else if (arg.type === "ObjectExpression") {
@@ -55,15 +47,15 @@ function checkObject(arg: ObjectExpression, route: Partial<GeneratorResult>) {
     ) {
       if (item.key.value.toLowerCase() === "content-type") {
         route.contentType = item.value.value;
+      } else {
+        route.headers?.push({
+          name: item.key.value,
+          schema: {
+            type: typeof item.value.value,
+            example: item.value.value,
+          },
+        });
       }
-      route.parameters?.push({
-        name: item.key.value,
-        in: "header",
-        schema: {
-          type: "string",
-          default: item.value.value,
-        },
-      });
     }
   }
 }
@@ -79,23 +71,20 @@ function checkLeftRight(
         route.contentType = right.value;
       }
       if (normVal === "set-cookie") {
-        route.parameters?.push({
+        route.headers?.push({
           name: left.value,
-          in: "cookie",
           schema: {
             type: "string",
-            default: right.value,
-            minLength: 1,
+            example: right.value,
           },
         });
         return;
       }
-      route.parameters?.push({
+      route.headers?.push({
         name: left.value,
-        in: "header",
         schema: {
           type: "string",
-          default: right.value,
+          example: right.value,
         },
       });
     }

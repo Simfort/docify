@@ -11,7 +11,7 @@ export function generatorOpenapi(code: string) {
     plugins: ["typescript"], // обязательно для TS-кода
   });
 
-  let route: Partial<GeneratorResult> = { parameters: [] };
+  let route: Partial<GeneratorResult> = { headers: [] };
 
   traverse.default(ast, {
     CallExpression(path) {

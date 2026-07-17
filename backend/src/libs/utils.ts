@@ -14,10 +14,11 @@ export function formatToJSONOpenAPI(routes: GeneratorResult[]) {
   for (const item of routes) {
     const type = Array.isArray(item.value) ? "array" : typeof item.value;
     paths[item.path] = {
+      ...paths[item.path],
       [item.method]: {
-        parameters: item.parameters,
         responses: {
           [item.statusCode || 200]: {
+            headers: item.headers,
             content: {
               [item.contentType || "application/json"]: {
                 schema: { type, example: item.value },
