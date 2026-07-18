@@ -1,5 +1,5 @@
 import { CircleSlashIcon, Files, Star } from "lucide-react";
-import { Question } from "./types";
+import { Question, Schema } from "./types";
 
 export const PAINS = [
   "You spend an hour documenting your API, and 10 minutes later a teammate tweaks a route. Now your docs are wrong.",
@@ -71,5 +71,41 @@ export const checkBackendAPI = () => {
     return api;
   } else {
     throw new Error("NEXT PUBLIC API URL - UNDEFINED");
+  }
+};
+//@ts-expect-error Error Schema
+export const deepPropertiesSchema = (schema: Schema) => {
+  if (!schema) return undefined;
+
+  switch (schema.type) {
+    case "object":
+      if (!schema.properties) return {};
+      const obj: Record<string, unknown> = {};
+      for (const [key, propSchema] of Object.entries(schema.properties)) {
+        obj[key] = deepPropertiesSchema(propSchema);
+      }
+      return obj;
+
+    case "array":
+      // Если есть example у массива — возвращаем его, иначе делаем заглушку
+      if (schema.example !== undefined) return schema.example;
+      //@ts-expect-error Error Schema
+      const itemExample = deepPropertiesSchema(schema.items);
+      return [itemExample]; // массив из одного элемента как пример
+
+    case "string":
+      return schema.example ?? "example-string";
+
+    case "integer":
+      return schema.example ?? 0;
+
+    case "number":
+      return schema.example ?? 0.0;
+
+    case "boolean":
+      return schema.example ?? false;
+
+    default:
+      return undefined;
   }
 };

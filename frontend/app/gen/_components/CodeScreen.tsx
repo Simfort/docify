@@ -6,8 +6,8 @@ import { CircleAlert } from "lucide-react";
 
 export default function CodeScreen() {
   return (
-    <section className="h-full p-5">
-      <div className="flex justify-between items-center ">
+    <section className=" p-5">
+      <div className="flex justify-between items-center max-lg:flex-col ">
         {" "}
         <h2>Write code</h2>
         <h1>

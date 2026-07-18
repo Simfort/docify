@@ -5,10 +5,10 @@ import CheckBoxAi from "./CheckBoxAI";
 
 export default function SettingsItems() {
   return (
-    <div className="py-5 absolute z-10 bg-card shadow shadow-secondary/10 flex flex-col gap-2 top-14 rounded-lg  p-5">
+    <div className="py-5 absolute z-10 bg-card shadow shadow-secondary flex flex-col gap-2 top-14 rounded-lg  p-5">
       {" "}
       <h6>Format</h6>
-      <div className="flex items-center gap-5">
+      <div className="flex items-center max-lg:flex-col gap-5">
         <RootInput />
         <FormatResponse />
       </div>

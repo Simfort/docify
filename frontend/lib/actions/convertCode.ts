@@ -6,17 +6,19 @@ export async function convertCode({
   file,
   ai,
   mode,
+  root,
 }: Partial<ParamsConvert>) {
   if (!mode) {
     const response = await fetch(`${checkBackendAPI()}/gen`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ code, ai }),
+      keepalive: true,
+      body: JSON.stringify({ code, ai, root }),
     });
     return response.json();
   } else if (mode === 1) {
     if (file) {
-      return fileFetch(file);
+      return fileFetch({ file, ai: ai || false, root });
     } else {
       throw new Error("File is not defined");
     }
@@ -25,13 +27,14 @@ export async function convertCode({
   }
 }
 
-export const fileFetch = async (file: File) => {
-  console.log(1);
+export const fileFetch = async ({ file, ai, root }: Partial<ParamsConvert>) => {
   const formData = new FormData();
-  formData.append("file", file);
+  formData.append("file", file!);
+  formData.append("root", String(root));
+  formData.append("ai", String(ai));
   const response = await fetch(`${checkBackendAPI()}/gen/files`, {
     method: "POST",
-
+    keepalive: true,
     body: formData,
   });
   return response.json();

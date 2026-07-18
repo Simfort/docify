@@ -11,8 +11,8 @@ export default function ResponseBlock() {
   const { settings } = useSettings();
   const format =
     settings.responseFormat === 0
-      ? JSON.stringify({ paths: response }, null, 2)
-      : dump({ path: response }, { indent: 2, lineWidth: -1 });
+      ? JSON.stringify(response.data, null, 2)
+      : dump(response.data, { indent: 2, lineWidth: -1 });
   return (
     <section className="w-full ">
       <ReactCodeMirror

@@ -5,8 +5,8 @@ export default function CheckBoxAi() {
   const { settings, setSettings } = useSettings();
 
   return (
-    <div className="flex gap-2">
-      <p className="bg-linear-to-r from-accent to-success flex gap-2 items-center bg-clip-text text-transparent">
+    <div className="flex gap-2 ">
+      <p className="bg-linear-to-r from-accent to-success w-max flex gap-2 items-center bg-clip-text text-transparent">
         <Star className="text-yellow-300" /> With AI
       </p>
       <button
