@@ -67,10 +67,11 @@ Code to convert:${code}
       ],
       temperature: 0,
     });
-    if (response.choices[0].message.content)
-      return JSON.parse(response.choices[0].message.content);
+    const message = response.choices[0].message.content;
+    console.log(message);
+    if (message) return JSON.parse(message);
     else {
-      return { error: "message is not define" };
+      return { error: "message is not defined" };
     }
   } catch (error) {
     console.error(error);
@@ -112,7 +113,7 @@ export const genFileOpenApi = async (req: Request, res: Response) => {
     });
 
     return new Promise<void>((resolve) => {
-      busboy.on("finish", () => {
+      busboy.on("finish", async () => {
         if (!zipBuffer) {
           return res.status(400).json({ error: "File is not defined" });
         }
@@ -121,21 +122,34 @@ export const genFileOpenApi = async (req: Request, res: Response) => {
           const zip = new AdmZip(zipBuffer);
           const entries = zip.getEntries();
           const jsFiles = entries
-            .filter((entry) => entry.entryName.toLowerCase().endsWith(".js"))
+            .filter(
+              (entry) =>
+                entry.entryName.toLowerCase().endsWith(".js") ||
+                entry.entryName.toLowerCase().endsWith(".ts"),
+            )
             .map((entry) => ({
               name: entry.entryName,
               content: entry.getData().toString("utf8"),
             }));
+
           const routes = [];
           for (const jsFile of jsFiles) {
-            const content = splitCode(jsFile.content, fields.root || "app");
-            for (const item of content) {
-              routes.push(generatorOpenapi(item));
+            if (Boolean(fields.ai)) {
+              routes.push(await genAi(jsFile.content));
+            } else {
+              const content = splitCode(jsFile.content, fields.root || "app");
+              for (const item of content) {
+                routes.push(generatorOpenapi(item));
+              }
             }
           }
 
           res
-            .json({ data: formatToJSONOpenAPI(routes as GeneratorResult[]) })
+            .json({
+              data: fields.ai
+                ? routes
+                : formatToJSONOpenAPI(routes as GeneratorResult[]),
+            })
             .status(200);
           resolve();
         } catch (err) {
