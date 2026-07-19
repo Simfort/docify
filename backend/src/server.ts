@@ -8,7 +8,9 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(express.json());
-app.use(cors({ origin: "https://docify-anaw.vercel.app" }));
+app.use(
+  cors({ origin: ["https://docify-anaw.vercel.app", "http://localhost:3000"] }),
+);
 
 app.use("/gen", routerGenerator);
 
