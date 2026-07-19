@@ -22,7 +22,7 @@ export async function convertCode({
     }
   } else if (mode === 1) {
     if (file) {
-      return fileFetch({ file, ai: ai || false, root });
+      return fileFetch({ file, ai: ai, root });
     } else {
       throw new Error("File is not defined");
     }

@@ -13,11 +13,15 @@ export default function Paths() {
     async function getResponses() {
       if (db) {
         const responses = await db.getAll("responses");
-        const result: { data: { paths: OpenAPIFormat } } = await db.get(
-          "responses",
-          responses[0].id,
-        );
-        setResponse(Object.entries(result.data.paths));
+        console.log(responses[0].id);
+        if (responses[0].id) {
+          const result: { data: { paths: OpenAPIFormat } } = await db.get(
+            "responses",
+            responses[0].id,
+          );
+          console.log(result);
+          setResponse(Object.entries(result.data.paths));
+        }
       }
     }
     getResponses();

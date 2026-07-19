@@ -25,8 +25,8 @@ export default function CodeContainer() {
           const finded = responses[0];
           await db.put("responses", { ...data, id: finded.id });
         }
-        setResponse(data);
       }
+      setResponse(data);
     },
     onError(err) {
       console.log(err);
