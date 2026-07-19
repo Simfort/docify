@@ -17,6 +17,7 @@ export default function CodeContainer() {
     mutationFn: convertCode,
     mutationKey: ["convert-code"],
     onSuccess: async (data) => {
+      console.log(data);
       if (db) {
         const responses = await db.getAll("responses");
         if (responses.length <= 0) await db?.add("responses", data);
