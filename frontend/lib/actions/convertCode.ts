@@ -9,13 +9,17 @@ export async function convertCode({
   root,
 }: Partial<ParamsConvert>) {
   if (!mode) {
-    const response = await fetch(`${checkBackendAPI()}/gen`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      keepalive: true,
-      body: JSON.stringify({ code, ai, root }),
-    });
-    return response.json();
+    try {
+      const response = await fetch(`${checkBackendAPI()}/gen`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        keepalive: true,
+        body: JSON.stringify({ code, ai, root }),
+      });
+      return response.json();
+    } catch (error) {
+      console.error(error);
+    }
   } else if (mode === 1) {
     if (file) {
       return fileFetch({ file, ai: ai || false, root });
