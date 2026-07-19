@@ -13,7 +13,7 @@ export const genOpenAPI = async (req: Request, res: Response) => {
     if (ai) {
       const result = await genAi(code);
 
-      return res.json({ data: result }).status(200);
+      return res.json({ data: result.paths }).status(200);
     }
 
     const splitedCode = splitCode(code, root || "app");
