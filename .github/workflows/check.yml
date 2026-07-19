@@ -1,7 +1,7 @@
 name: Check
 on: push
 jobs:
-  ci-demo:
+  Frontend:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -12,5 +12,5 @@ jobs:
         run: cd ./frontend && npm run lint
       - name: Build project
         run: cd ./frontend && npm run build
-      - name: Testin project
+      - name: Testing project
         run: cd ./frontend && npm run test
