@@ -128,11 +128,14 @@ export const genFileOpenApi = async (req: Request, res: Response) => {
               content: entry.getData().toString("utf8"),
             }));
 
-          const routes = [];
-          console.log(Boolean(fields.ai));
+          const routes = {} as any;
+
           for (const jsFile of jsFiles) {
             if (fields.ai === "true") {
-              routes.push(await genAi(jsFile.content));
+              const entries = Object.entries(
+                (await genAi(jsFile.content)).paths,
+              );
+              routes[entries[0][0]] = entries[0][1];
             } else {
               const content = splitCode(jsFile.content, fields.root || "app");
               for (const item of content) {

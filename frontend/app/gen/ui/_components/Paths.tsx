@@ -20,7 +20,7 @@ export default function Paths() {
             responses[0].id,
           );
           console.log(result);
-          setResponse(Object.entries(result.data.paths));
+          setResponse(Object.entries(result.data));
         }
       }
     }

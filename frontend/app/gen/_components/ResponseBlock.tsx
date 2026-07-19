@@ -19,7 +19,7 @@ export default function ResponseBlock() {
         value={format}
         extensions={settings.responseFormat === 0 ? [json()] : [yaml()]}
         height="50vh"
-        className="w-full text-lg"
+        className="w-full text-lg "
         theme={"dark"}
       />
     </section>

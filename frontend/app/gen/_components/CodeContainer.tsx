@@ -8,6 +8,7 @@ import { useSettings } from "@/lib/store/useSettings";
 import { Loader } from "lucide-react";
 import useIDB from "@/lib/hooks/useIDB";
 import Link from "next/link";
+import { Suspense } from "react";
 
 export default function CodeContainer() {
   const { code, setResponse, file } = useCode();
@@ -63,6 +64,7 @@ export default function CodeContainer() {
       tabIndex={0}
       className="flex gap-5 items-center max-lg:flex-col">
       <CodeBlock />
+
       <div className="flex flex-col">
         <button onClick={handleClick} className="bg-accent p-2 rounded-lg ">
           Convert

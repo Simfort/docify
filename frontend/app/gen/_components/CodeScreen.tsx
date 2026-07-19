@@ -6,10 +6,8 @@ import { CircleAlert } from "lucide-react";
 
 export default function CodeScreen() {
   return (
-    <section className=" p-5">
+    <section className=" px-main">
       <div className="flex justify-between items-center max-lg:flex-col ">
-        {" "}
-        <h2>Write code</h2>
         <h1>
           <Link href={"/"} className="flex items-center">
             <Image
@@ -21,7 +19,6 @@ export default function CodeScreen() {
             Docify
           </Link>
         </h1>
-        <h2>Response</h2>
       </div>{" "}
       <hr className="text-accent" />
       <Settings />{" "}
