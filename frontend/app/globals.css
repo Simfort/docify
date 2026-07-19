@@ -109,15 +109,15 @@ body {
     font-size: 40px;
   }
   h2 {
-    font-size: 40px;
-  }
-  h3 {
     font-size: 30px;
   }
-  h4 {
+  h3 {
     font-size: 25px;
   }
+  h4 {
+    font-size: 20px;
+  }
   h5 {
-    font-size: 19px;
+    font-size: 15px;
   }
 }
