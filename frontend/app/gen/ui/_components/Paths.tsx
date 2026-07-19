@@ -12,9 +12,10 @@ export default function Paths() {
   useEffect(() => {
     async function getResponses() {
       if (db) {
+        const responses = await db.getAll("responses");
         const result: { data: { paths: OpenAPIFormat } } = await db.get(
           "responses",
-          1,
+          responses[0].id,
         );
         setResponse(Object.entries(result.data.paths));
       }

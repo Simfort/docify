@@ -23,7 +23,6 @@ export default function CodeContainer() {
         if (responses.length <= 0) await db?.add("responses", data);
         else {
           const finded = responses[0];
-          console.log(finded);
           await db.put("responses", { ...data, id: finded.id });
         }
         setResponse(data);
