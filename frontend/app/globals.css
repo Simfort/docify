@@ -44,6 +44,9 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
 body {
   background: var(--background);
   color: var(--foreground);
@@ -87,7 +90,7 @@ body {
     user-select: none;
   }
 }
-@media screen and (width < 1000px) {
+@media screen and (width < 1200px) {
   :root {
     --padding-x: 30px;
   }
@@ -97,6 +100,7 @@ body {
     --padding-x: 20px;
   }
 }
+
 @media screen and (width < 600px) {
   :root {
     --padding-x: 20px;

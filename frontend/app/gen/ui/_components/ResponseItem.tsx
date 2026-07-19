@@ -13,7 +13,7 @@ export default function ResponseItem({
 
   const contentSchema = deepPropertiesSchema(content[0][1]?.schema);
   return (
-    <div className="flex gap-10 ">
+    <div className="flex gap-10 overflow-x-scroll ">
       <p>{status}</p>
       <div className="text-secondary flex flex-col gap-5">
         <p>{response.description}</p>{" "}

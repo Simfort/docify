@@ -1,11 +1,13 @@
 "use client";
 
 import { useCode } from "@/lib/store/useCode";
-import { useState } from "react";
+import { X } from "lucide-react";
+import { useRef, useState } from "react";
 
 export default function FilesPick() {
   const { setFile, file } = useCode();
   const [isDragged, setIsDragged] = useState(false);
+  const pickRef = useRef<HTMLInputElement | null>(null);
 
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
@@ -31,30 +33,65 @@ export default function FilesPick() {
     console.log("Загружен файл:", selectedFile);
     setIsDragged(false);
   };
-
+  const handleClick = () => {
+    setFile(null);
+    const pick = pickRef.current;
+    if (pick) {
+      pick.value = "";
+      pick.click();
+    }
+  };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const file = e.target.files[0];
+      if (file) setFile(file);
+    }
+  };
+  const handleDeleteFile = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setFile(null);
+  };
   return (
     <div
+      onClick={handleClick}
       onDragLeave={handleDragLeave}
       onDragOver={handleDragOver}
       onDrop={handleDrop}
+      role="button"
+      aria-label={
+        file ? `File loaded: ${file.name}` : "Drag or click for select file"
+      }
+      aria-describedby={file ? "file-info" : undefined}
       className={`w-full h-[50vh] border-2 border-dashed flex items-center justify-center rounded-lg bg-card cursor-pointer hover:bg-muted transition-colors ${isDragged ? "opacity-50 border-accent" : ""}`}>
       {file ? (
-        <div className="text-center text-xl">
-          <p className="mb-2">Загружен файл:</p>
-          <p className="font-mono bg-background p-1 rounded-lg border-accent border">
-            {file.name} ({(file.size / 1024).toFixed(1)} KB)
-          </p>
+        <div id="file-info" className="text-center text-xl">
+          <p className="mb-2">Loaded file:</p>{" "}
+          <div className="flex w-full items-center">
+            <p className="font-mono bg-background p-1 rounded-lg border-accent border">
+              {file.name} ({(file.size / 1024).toFixed(1)} KB)
+            </p>{" "}
+            <button onClick={handleDeleteFile} aria-label="Delete file">
+              <X />
+            </button>
+          </div>
         </div>
       ) : (
         <>
           <h4>
-            Перетащите файл{" "}
+            Drag or click for select file{" "}
             <span className="bg-background p-1 rounded-lg border-accent border font-mono">
               .zip
             </span>
           </h4>
         </>
       )}
+      <input
+        onChange={handleChange}
+        ref={pickRef}
+        type="file"
+        hidden
+        accept=".zip"
+      />
     </div>
   );
 }

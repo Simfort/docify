@@ -3,7 +3,9 @@ import PainItem from "./PainItem";
 
 export default function WhereThePainScreen() {
   return (
-    <section className="min-h-screen py-20 bg-secondary/5 gap-10 flex flex-col items-center px-main">
+    <section
+      id="pains"
+      className="min-h-screen py-20 bg-secondary/5 gap-10 flex flex-col items-center justify-center px-main">
       <h2 className="leading-6">
         The Pain <div className="bg-accent h-2  w-full" />
       </h2>

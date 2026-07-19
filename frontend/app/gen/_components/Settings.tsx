@@ -26,14 +26,14 @@ export default function Settings() {
   return (
     <section
       ref={sectionRef}
-      className="max-w-lg my-5 relative rounded-lg bg-card">
+      className="max-w-sm my-5 w-full relative rounded-lg bg-card">
       <button
         type="button"
         onClick={(e) => {
           e.stopPropagation();
           setOpen(!open);
         }}
-        className="flex w-full  px-5 py-3 items-center text-left">
+        className="flex w-full  h-full justify-between px-5 py-3 items-center text-left">
         Settings{" "}
         {open ? (
           <ChevronUp className="pointer-events-none" />

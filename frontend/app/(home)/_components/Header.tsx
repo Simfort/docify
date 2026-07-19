@@ -19,11 +19,30 @@ export default function Header() {
         </Link>
 
         <nav className="flex items-center gap-8">
-          <Link href="/how-it-works" className="hover:text-secondary">
-            How it Works
+          <Link
+            href="#pains"
+            className="hover:text-secondary active:text-secondary flex items-center px-2 gap-2">
+            Pains
           </Link>
-          <Link href="/about" className="hover:text-secondary">
-            About Project
+          <Link
+            href="#different"
+            className="hover:text-secondary active:text-secondary flex items-center px-2 gap-2">
+            How It Feels Different
+          </Link>{" "}
+          <Link
+            href="#reals"
+            className="hover:text-secondary active:text-secondary flex items-center px-2 gap-2">
+            Real Teams
+          </Link>{" "}
+          <Link
+            href="#example"
+            className="hover:text-secondary active:text-secondary flex items-center px-2 gap-2">
+            Example
+          </Link>{" "}
+          <Link
+            href="#faq"
+            className="hover:text-secondary active:text-secondary flex items-center px-2 gap-2">
+            FAQ
           </Link>
         </nav>
 

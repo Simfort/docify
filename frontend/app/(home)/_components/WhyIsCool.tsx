@@ -2,7 +2,9 @@ import { ACTUALS } from "@/lib/utils";
 
 export default function WhyIsCool() {
   return (
-    <section className="px-main text-center flex flex-col gap-10 py-20 bg-card max-lg:py-10">
+    <section
+      id="reals"
+      className="px-main text-center flex flex-col gap-10 py-20 bg-card max-lg:py-10">
       <h2>Why This Matters for Real Teams </h2>
       <ol className="flex flex-wrap items-center gap-5 w-full justify-center">
         {" "}

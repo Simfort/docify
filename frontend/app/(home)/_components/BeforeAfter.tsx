@@ -2,6 +2,7 @@
 import { javascript } from "@codemirror/lang-javascript";
 import { json } from "@codemirror/lang-json";
 import ReactCodeMirror from "@uiw/react-codemirror";
+import Link from "next/link";
 
 const expressLang = `// You write the route...
 app.get('/users', (req, res) => { ... });
@@ -21,7 +22,9 @@ paths:
 
 export default function BeforeAfter() {
   return (
-    <section className="px-main flex relative z-2  overflow-hidden flex-col gap-10 py-20 items-center justify-center relative">
+    <section
+      id="example"
+      className="px-main flex z-2  overflow-hidden flex-col gap-10 py-20 items-center justify-center relative">
       <div
         aria-hidden
         className="absolute w-1 top-0 left-0 -z-1 bg-accent rotate-z-45  h-full"></div>
@@ -54,9 +57,11 @@ export default function BeforeAfter() {
           theme={"dark"}
         />{" "}
       </div>
-      <button className="py-2 px-5 rounded-lg bg-accent text-background">
-        Open In Swagger UI
-      </button>
+      <Link
+        href={"/gen"}
+        className=" max-w-sm bg-accent py-2 rounded-lg px-5 gap-2 flex items-center active:opacity-50 hover:opacity-70 hover:translate-y-0.5 justify-center transition-transform duration-100">
+        Open
+      </Link>
     </section>
   );
 }

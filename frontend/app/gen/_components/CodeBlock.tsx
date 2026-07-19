@@ -10,6 +10,7 @@ export default function CodeBlock() {
   const { settings } = useSettings();
   return (
     <section className="w-full ">
+      <h5>Code Editor</h5>
       {!settings.mode ? (
         <ReactCodeMirror
           key={0}

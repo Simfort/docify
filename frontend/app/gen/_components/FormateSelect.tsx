@@ -12,7 +12,7 @@ export default function FormatResponse() {
   return (
     <div className="w-full">
       {" "}
-      <p>Format Response</p>
+      <p className="w-max">Format Response</p>
       <Select
         onChange={(val) =>
           setSettings({ responseFormat: val as ResponsesFormats })
