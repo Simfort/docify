@@ -34,8 +34,7 @@ export const genOpenAPI = async (req: Request, res: Response) => {
 };
 
 export const genAi = async (code: string) => {
-  try {
-    const prompt = `You are an expert in OpenAPI/Swagger specifications and Node.js/Express architecture. Your task is to convert the provided server-side code snippet (JavaScript/TypeScript with Express routes) into a valid OpenAPI 3.0 specification.
+  const prompt = `You are an expert in OpenAPI/Swagger specifications and Node.js/Express architecture. Your task is to convert the provided server-side code snippet (JavaScript/TypeScript with Express routes) into a valid OpenAPI 3.0 specification.
 
 Input: a code snippet containing Express route handlers (e.g., app.get, app.post, router.route, etc.).
 Output: ONLY the OpenAPI specification in JSON format. Do not include any explanations, markdown code blocks, or comments outside the JSON.
@@ -52,29 +51,26 @@ Requirements:
 
 Code to convert:${code}
 `;
-    const response = await openai.chat.completions.create({
-      model: "tencent/hy3:free",
-      messages: [
-        {
-          role: "system",
-          content:
-            "You are a precise code-to-OpenAPI converter. Output only valid JSON.",
-        },
-        {
-          role: "user",
-          content: prompt,
-        },
-      ],
-      temperature: 0,
-    });
-    const message = response.choices[0].message.content;
-    console.log(message);
-    if (message) return JSON.parse(message);
-    else {
-      return { error: "message is not defined" };
-    }
-  } catch (error) {
-    console.error(error);
+  const response = await openai.chat.completions.create({
+    model: "tencent/hy3:free",
+    messages: [
+      {
+        role: "system",
+        content:
+          "You are a precise code-to-OpenAPI converter. Output only valid JSON.",
+      },
+      {
+        role: "user",
+        content: prompt,
+      },
+    ],
+    temperature: 0,
+  });
+  const message = response.choices[0].message.content;
+  console.log(message);
+  if (message) return JSON.parse(message);
+  else {
+    return { error: "message is not defined" };
   }
 };
 
