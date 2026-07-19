@@ -129,8 +129,9 @@ export const genFileOpenApi = async (req: Request, res: Response) => {
             }));
 
           const routes = [];
+          console.log(Boolean(fields.ai));
           for (const jsFile of jsFiles) {
-            if (Boolean(fields.ai)) {
+            if (fields.ai === "true") {
               routes.push(await genAi(jsFile.content));
             } else {
               const content = splitCode(jsFile.content, fields.root || "app");
@@ -142,9 +143,10 @@ export const genFileOpenApi = async (req: Request, res: Response) => {
 
           res
             .json({
-              data: fields.ai
-                ? routes
-                : formatToJSONOpenAPI(routes as GeneratorResult[]),
+              data:
+                fields.ai === "true"
+                  ? routes
+                  : formatToJSONOpenAPI(routes as GeneratorResult[]),
             })
             .status(200);
           resolve();
