@@ -8,3 +8,6 @@ export const routerGenerator = Router();
 
 routerGenerator.post("/", genOpenAPI);
 routerGenerator.post("/files", genFileOpenApi);
+routerGenerator.get("/", (req, res) => {
+  res.json({ message: "hi" });
+});
