@@ -55,6 +55,30 @@ body {
   overflow-x: hidden;
   max-width: 100%;
 }
+body[data-theme="light"] {
+  --background: #f0f4ff;
+  --card: #ffffff;
+  --foreground: #1e293b;
+  --secondary: #64748b;
+  --accent: #7c3aed;
+  --hover: #5b21b6;
+  --success: #8b5cf6;
+  --error: #ef4444;
+  --border: #e2e8f0;
+  --code: #0f1117;
+}
+body[data-theme="dark"] {
+  --background: #0f1117;
+  --card: #1f2937;
+  --foreground: #f9fafb;
+  --secondary: #9ca3af;
+  --accent: #a78bfa;
+  --hover: #818cf8;
+  --success: #8dd1fa;
+  --error: #fca5a5;
+  --border: #374151;
+  --code: #111827;
+}
 @layer components {
   h1 {
     font-size: 70px;

@@ -59,7 +59,7 @@ export default function BeforeAfter() {
       </div>
       <Link
         href={"/gen"}
-        className=" max-w-sm bg-accent py-2 rounded-lg px-5 gap-2 flex items-center active:opacity-50 hover:opacity-70 hover:translate-y-0.5 justify-center transition-transform duration-100">
+        className=" max-w-sm bg-accent py-2 rounded-lg px-5 gap-2 flex items-center active:opacity-50 hover:opacity-70 hover:translate-y-0.5 text-background justify-center transition-transform duration-100">
         Open
       </Link>
     </section>

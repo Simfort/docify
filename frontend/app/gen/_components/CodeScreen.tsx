@@ -3,6 +3,7 @@ import Settings from "./Settings";
 import Link from "next/link";
 import CodeContainer from "./CodeContainer";
 import { CircleAlert } from "lucide-react";
+import ButtonChangeTheme from "@/components/ButtonChangeTheme";
 
 export default function CodeScreen() {
   return (
@@ -17,6 +18,7 @@ export default function CodeScreen() {
           />
           Docify
         </Link>
+        <ButtonChangeTheme />
       </div>{" "}
       <hr className="text-accent" />{" "}
       <h2 className="text-center flex items-center flex-col">

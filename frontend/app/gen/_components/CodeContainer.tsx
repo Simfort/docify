@@ -66,7 +66,9 @@ export default function CodeContainer() {
       <CodeBlock />
 
       <div className="flex flex-col">
-        <button onClick={handleClick} className="bg-accent p-2 rounded-lg ">
+        <button
+          onClick={handleClick}
+          className="bg-accent p-2 rounded-lg text-background">
           Convert
         </button>{" "}
         <Link

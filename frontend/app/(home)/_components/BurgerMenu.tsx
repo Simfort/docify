@@ -13,6 +13,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import ButtonChangeTheme from "@/components/ButtonChangeTheme";
 
 export default function BurgerMenu() {
   const [openFlag, setOpenFlag] = useState(false);
@@ -26,6 +27,7 @@ export default function BurgerMenu() {
         onClick={() => setOpenFlag(!openFlag)}>
         {openFlag ? <X /> : <Menu />}
       </button>
+
       <AnimatePresence mode="wait">
         {openFlag && (
           <motion.aside
@@ -83,7 +85,10 @@ export default function BurgerMenu() {
                 className="max-w-lg gap-2 flex items-center active:opacity-50 hover:opacity-70 w-full  px-2"
                 href="https://github.com/Simfort/docify">
                 <GitHubIcon width={30} className="fill-foreground" /> GitHub
-              </a>
+              </a>{" "}
+              <div className="px-2">
+                <ButtonChangeTheme />
+              </div>
             </nav>
           </motion.aside>
         )}

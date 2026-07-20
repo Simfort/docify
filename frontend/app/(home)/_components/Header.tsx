@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import BurgerMenu from "./BurgerMenu";
+import ButtonChangeTheme from "@/components/ButtonChangeTheme";
 
 export default function Header() {
   return (
@@ -58,6 +59,7 @@ export default function Header() {
             href="https://github.com/Simfort/docify">
             GitHub
           </a>
+          <ButtonChangeTheme />
         </div>
       </div>
     </header>
