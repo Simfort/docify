@@ -5,7 +5,7 @@ import { json } from "@codemirror/lang-json";
 import ReactCodeMirror from "@uiw/react-codemirror";
 import { useSettings } from "@/lib/store/useSettings";
 import { yaml } from "@codemirror/lang-yaml";
-import { Copy, CopyCheck } from "lucide-react";
+import { Copy, CopyCheck, Download } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function ResponseBlock() {
@@ -26,6 +26,22 @@ export default function ResponseBlock() {
     }
   };
 
+  function downloadFile() {
+    const blob = new Blob([format], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download =
+      settings.responseFormat === 0
+        ? `docifyOpenApi.json`
+        : "docifyOpenApi.yaml";
+    document.body.appendChild(a);
+    a.click();
+
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
   useEffect(() => {
     let timeout: NodeJS.Timeout | null = null;
     if (isCopied) {
@@ -43,21 +59,27 @@ export default function ResponseBlock() {
     <section className="w-full ">
       <div className="flex justify-between py-2">
         <h5>Response</h5>
-        <button
-          onClick={handleCopy}
-          className={`${isCopied ? "text-success border-success" : "text-secondary border-accent"} bg-card  text-sm items-center  border  rounded-sm flex gap-2 py-1 px-5`}>
-          {isCopied ? (
-            <>
-              <CopyCheck />
-              Copied
-            </>
-          ) : (
-            <>
-              <Copy />
-              Copy
-            </>
-          )}
-        </button>
+        <div className="flex gap-5">
+          <button
+            onClick={handleCopy}
+            className={`${isCopied ? "text-success border-success" : "text-secondary border-accent"} bg-card  text-sm items-center  border  rounded-sm flex gap-2 py-1 px-5`}>
+            {isCopied ? (
+              <>
+                <CopyCheck />
+                Copied
+              </>
+            ) : (
+              <>
+                <Copy />
+                Copy
+              </>
+            )}
+          </button>{" "}
+          <button onClick={downloadFile} className="flex items-center gap-2">
+            <Download />
+            Download
+          </button>
+        </div>
       </div>
 
       <ReactCodeMirror

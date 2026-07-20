@@ -18,9 +18,8 @@ export default function HomeScreen() {
             Validator for Express
           </h1>
           <p className="max-lg:text-center max-sm:text-start starting:opacity-0 opacity-100 transition-opacity duration-300 delay-700 ">
-            A personal project where I built the full stack from scratch:
-            Next.js UI, Express backend, and Spectral validation. No AI. Just
-            your code.
+            Express code → OpenAPI, no JSDoc required. Supports ZIP parsing and
+            AI‑enhanced analysis.
           </p>
           <div className="flex flex-col gap-2">
             {" "}

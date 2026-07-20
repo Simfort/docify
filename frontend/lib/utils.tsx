@@ -9,47 +9,48 @@ export const PAINS = [
 ];
 export const ACTUALS = [
   {
-    title: "Docs stay in sync automatically. ",
-    text: "Every time the code changes, the generated spec reflects it. No more “please update the docs” tickets.",
+    title: "Saves time.",
+    text: "Skip hours of manual JSDoc writing and repetitive updates.",
   },
   {
-    title: "Validation catches mistakes early.",
-    text: "Spectral surfaces issues before they break integrations or confuse new hires.",
+    title: "Stays accurate.",
+    text: "The spec reflects the actual code, not outdated comments.",
   },
   {
-    title: "No AI hallucinations.",
-    text: "The spec comes strictly from your actual routes and JSDoc. What you see is what your server does.",
+    title: "Scales with your project.",
+    text: "Handle single files or entire repositories with ZIP parsing.",
   },
   {
-    title: "CI/CD ready.",
-    text: "Because the validation logic is a standalone service, you can block deployments if the spec is invalid.",
-  },
-  {
-    title: "Minimal overhead.",
-    text: "No new decorators, no separate YAML files to maintain. Just your existing Express code and comments.",
+    title: "Handles edge cases. ",
+    text: " AI‑assisted parsing covers tricky or incomplete code paths.",
   },
 ];
 
 export const QUESTIONS: Question[] = [
   {
-    question: "Isn’t this just another code generator?",
+    question: "How does Docify generate OpenAPI without JSDoc?",
     answer:
-      "It’s not about generating new code. It’s about turning your existing Express routes + JSDoc into a machine‑readable OpenAPI spec without duplication.",
+      "Docify statically analyzes Express route definitions to extract HTTP methods, paths, URL/query parameters, request bodies, and basic responses. For complex or ambiguous cases, the AI‑assisted parsing module fills in missing details based on code structure and TypeScript types, ensuring a more complete OpenAPI spec.",
   },
   {
-    question: "Do I have to rewrite my routes with special annotations?",
+    question: "What file types and project setups are supported?",
     answer:
-      "No. Docify uses your existing JSDoc comments. If you don’t have them, it tells you clearly instead of guessing.",
+      "Docify supports JavaScript and TypeScript files within an Express app structure. You can upload individual files or a full project as a ZIP archive—the parser will scan all JS/TS files and aggregate them into a single OpenAPI specification.",
   },
   {
-    question: "What if my spec has errors?",
+    question: "How accurate is the generated spec without manual comments?",
     answer:
-      "Spectral runs automatically and reports warnings/errors so you fix them before handing off the API contract.",
+      "Accuracy is high for standard Express patterns: routes, methods, and basic parameters are reliably detected. Details like field types, examples, and descriptions may be incomplete in some cases—that’s where AI augmentation helps fill the gaps. Using TypeScript and clear variable names improves inference quality.",
   },
   {
-    question: "Can I automate this?",
+    question: "What exactly does AI‑assisted parsing do?",
     answer:
-      "Yes. The validation service is designed to be called from CI/CD pipelines. You can fail the build if the spec isn’t valid.",
+      "AI parsing kicks in when static analysis isn’t enough: it reconstructs request/response schemas for complex handlers, infers missing parameters in partially undocumented routes, and adds reasonable examples and descriptions based on function names, variable usage, and common API patterns. It doesn’t guess blindly—it uses context from your code to make educated assumptions while keeping the spec consistent with your actual implementation.",
+  },
+  {
+    question: "Does Docify support TypeScript projects?",
+    answer:
+      "Absolutely. TypeScript types significantly improve the quality of the generated spec—Docify leverages them to infer precise schemas for request bodies and responses, reducing the need for AI augmentation and increasing overall accuracy.",
   },
 ];
 export const LIST_RESPONSE = ["JSON", "YAML"];

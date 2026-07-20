@@ -6,11 +6,11 @@ export default function WhyIsCool() {
       id="reals"
       className="px-main text-center flex flex-col gap-10 py-20 bg-card max-lg:py-10">
       <h2>Why This Matters for Real Teams </h2>
-      <ol className="flex flex-wrap items-center gap-5 w-full justify-center">
+      <ol className="w-full grid grid-cols-2 gap-2 max-lg:grid-cols-1 auto-rows-fr">
         {" "}
         {ACTUALS.map((item, index) => (
           <li
-            className="max-w-lg p-2 bg-background shadow   max-lg:p-10 rounded-lg h-full"
+            className="w-full p-5 bg-background shadow text-start flex  flex-col justify-center    rounded-lg h-full"
             key={index}>
             <h4>{item.title}</h4>
             <p>{item.text}</p>

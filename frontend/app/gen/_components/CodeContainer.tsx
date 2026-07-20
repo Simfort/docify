@@ -8,7 +8,6 @@ import { useSettings } from "@/lib/store/useSettings";
 import { Loader } from "lucide-react";
 import useIDB from "@/lib/hooks/useIDB";
 import Link from "next/link";
-import { Suspense } from "react";
 
 export default function CodeContainer() {
   const { code, setResponse, file } = useCode();
@@ -30,7 +29,8 @@ export default function CodeContainer() {
       setResponse(data);
     },
     onError(err) {
-      console.log(err);
+      console.error(err);
+      setResponse({});
     },
   });
   const handleKeyDown = async (e: React.KeyboardEvent<HTMLDivElement>) => {

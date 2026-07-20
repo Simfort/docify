@@ -5,11 +5,10 @@ export default function FourRe() {
     <>
       <GitHubIcon className="size-full fill-foreground order-7 max-sm:order-8" />
       <div className="reflie order-8 max-sm:order-7">
-        <h4>4.Validate immediately with Spectral. </h4>
-        <p>
-          Catch inconsistencies before they hit CI/CD or confuse a frontend
-          team.
-        </p>
+        <h4>
+          4.You can use <span className="text-accent">AI. </span>
+        </h4>
+        <p>It`s free. Just for more accurate documentation.</p>
       </div>
     </>
   );
