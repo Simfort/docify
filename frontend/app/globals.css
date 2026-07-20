@@ -47,14 +47,6 @@
 html {
   scroll-behavior: smooth;
 }
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-weight: bold;
-  min-height: 100vh;
-  overflow-x: hidden;
-  max-width: 100%;
-}
 body[data-theme="light"] {
   --background: #f0f4ff;
   --card: #ffffff;
@@ -79,6 +71,15 @@ body[data-theme="dark"] {
   --border: #374151;
   --code: #111827;
 }
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-weight: bold;
+  min-height: 100vh;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 @layer components {
   h1 {
     font-size: 70px;

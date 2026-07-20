@@ -31,6 +31,7 @@ export default function BurgerMenu() {
       <AnimatePresence mode="wait">
         {openFlag && (
           <motion.aside
+            onClick={() => setOpenFlag(false)}
             role="polite"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
