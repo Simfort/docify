@@ -8,7 +8,6 @@ export default function ResponseItem({
   status: string;
   response: ResponseData;
 }) {
-  console.log(response);
   const content = Object.entries(response.content || { "Not mime type": "hi" });
 
   const contentSchema = deepPropertiesSchema(content[0][1]?.schema);

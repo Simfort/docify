@@ -1,0 +1,41 @@
+name: e2e
+
+on: push
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Install deps
+        run: cd ./frontend && npm i
+      - name: Lint
+        run: cd ./frontend && npm run lint
+      - name: Build project
+        run: cd ./frontend && npm run build
+
+      - name: Start Next.js server in background
+        run: cd ./frontend && npm start &
+
+      - name: Wait for server to be ready
+        run: |
+          for i in {1..30}; do
+            if curl -s http://localhost:3000 >/dev/null 2>&1; then
+              echo "Server is up"
+              break
+            fi
+            echo "Waiting for server..."
+            sleep 2
+          done
+          if [ $i -eq 30 ]; then
+            echo "Server never started"
+            exit 1
+          fi
+
+      - name: Install Playwright browsers and deps
+        run: cd ./frontend && npx playwright install --with-deps
+
+      - name: Run E2E tests
+        run: cd ./frontend && npm run test:e2e
