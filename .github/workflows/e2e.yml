@@ -34,5 +34,8 @@ jobs:
             exit 1
           fi
 
+      - name: Install Playwright browsers and deps
+        run: cd ./frontend && npx playwright install --with-deps
+
       - name: Run E2E tests
         run: cd ./frontend && npm run test:e2e
