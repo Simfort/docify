@@ -1,0 +1,16 @@
+name: e2e
+on: push
+jobs:
+  Frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Install deps
+        run: cd ./frontend && npm i
+      - name: Lint
+        run: cd ./frontend && npm run lint
+      - name: Build project
+        run: cd ./frontend && npm run build
+      - name: Testing e2e project
+        run: cd ./frontend && npm run test:e2e

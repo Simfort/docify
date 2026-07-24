@@ -1,3 +1,4 @@
+import { useReportWebVitals } from "next/web-vitals";
 export type IconProps = React.SVGProps<SVGSVGElement>;
 
 export type Question = { question: string; answer: string };
@@ -122,3 +123,5 @@ export type Schema =
     };
 
 export type SchemaRec = Record<string, Schema>;
+
+export type Metric = Parameters<Parameters<typeof useReportWebVitals>[0]>[0];

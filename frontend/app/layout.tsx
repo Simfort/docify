@@ -3,6 +3,7 @@ import { Jost } from "next/font/google";
 import "./globals.css";
 import Footer from "./(home)/_components/Footer";
 import Provider from "./Provider";
+import { WebMetric } from "@/components/WebMetric";
 
 export const metadata: Metadata = {
   title: {
@@ -67,6 +68,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={` ${jost.className} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
+        <WebMetric />
         <Provider> {children}</Provider>
         <Footer />
       </body>
