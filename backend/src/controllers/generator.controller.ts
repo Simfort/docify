@@ -52,7 +52,7 @@ Requirements:
 Code to convert:${code}
 `;
   const response = await openai.chat.completions.create({
-    model: "tencent/hy3:free",
+    model: "nvidia/nemotron-3-nano-30b-a3b:free",
     messages: [
       {
         role: "system",
