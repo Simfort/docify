@@ -17,10 +17,10 @@ Just send your ZIP—Docify handles the rest.
 
 Built for reliability and scalability:
 
+- Next.js + Tailwind
 - Node.js + Express
 - TypeScript
 - Prisma + PostgreSQL
-- Docker support
 
 ## How to use
 
