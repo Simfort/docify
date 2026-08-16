@@ -33,4 +33,4 @@ The service is already live at [docify-anaw.vercel](https://docify-anaw.vercel.a
 ---
 
 🔗 [Live demo](https://docify-anaw.vercel.app/)
-📬 Questions or feedback? [My email](lemondzavadavid265@gmail.com)
+📬 Questions or feedback: lemondzavadavid265@gmail.com
